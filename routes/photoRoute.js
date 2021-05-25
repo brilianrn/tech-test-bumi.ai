@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get('/', PhotoController.getAllPhotos);
 router.get('/:id', PhotoController.getOnePhoto);
-router.get('/?albumId', PhotoController.getByAlbumId);
+router.get('/sorting-by/:albumId', PhotoController.getByAlbumId);
 
 module.exports = router;
