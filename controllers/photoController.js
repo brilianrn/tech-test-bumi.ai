@@ -26,8 +26,17 @@ class PhotoController {
   }
 
   static getByAlbumId(req, res, next) {
-    const albumId = req.query
-    console.log(albumId)
+    const albumId = req.params.albumId;
+
+    Photo.findAll({
+      where: { albumId }
+    })
+      .then(data => {
+        res.status(200).json(data);
+      })
+      .catch(err => {
+        next(err);
+      })
   }
 }
 
